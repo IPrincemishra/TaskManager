@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "@fontsource/poppins";
+
+* {
+    font-family: "Poppins";
+}
