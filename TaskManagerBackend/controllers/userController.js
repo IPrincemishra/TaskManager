@@ -1,13 +1,13 @@
 import User from "../models/userModel.js"
 import validator from "validator"
-import bcrypt from "bcryptjs"
+import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
 const TOKEN_EXPIRES = "24h"
 
 const createToken = (userId) => {
-    jwt.sign({
+    return jwt.sign({
         id: userId
     }, JWT_SECRET_KEY, { expiresIn: TOKEN_EXPIRES })
 }
@@ -92,7 +92,7 @@ export async function loginUser(req, res) {
         }
 
         const match = await bcrypt.compare(password, user.password);
-        if (!password) {
+        if (!match) {
             return res.status(401).json({
                 success: false,
                 message: "Invalid credentials!!!"

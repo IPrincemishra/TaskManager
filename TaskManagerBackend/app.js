@@ -3,6 +3,7 @@ import cors from "cors"
 import 'dotenv/config'
 import { connectDB } from "./config/db.js";
 import userRouter from "./routes/userRoute.js"
+import taskRouter from "./routes/taskRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -16,7 +17,7 @@ connectDB()
 
 // routes
 app.use("/api/user", userRouter)
-
+app.use("/api/tasks", taskRouter)
 
 
 app.listen(PORT, () => {
