@@ -155,7 +155,7 @@ const Layout = ({ user, onLogout }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="bg-white rounded-xl  p-4 sm:p-5 shadow-sm border border-r-purple-100">
+                                <div className="bg-white rounded-xl border border-purple-100 p-4 sm:p-5 shadow-md">
                                     <h3 className='text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-gray-800 flex items-center gap-2'>
                                         <CiClock1 className='w-4 h-4 sm:w-5 sm:h-5 text-purple-500' />
                                         Recent Activity

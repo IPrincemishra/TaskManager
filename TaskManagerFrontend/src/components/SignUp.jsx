@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { FaUserPlus } from 'react-icons/fa';
-import { BUTTONCLASSES, FIELDS, Inputwrapper, MESSAGE_ERROR, MESSAGE_SUCCESS } from '../constants/constants';
+import { API_URL, BUTTONCLASSES, FIELDS, Inputwrapper, MESSAGE_ERROR, MESSAGE_SUCCESS } from '../constants/constants';
 import axios from 'axios';
 
 
-const API_URL = "http://localhost:8000"
 const INITIAL_FORM = { name: "", email: "", password: "" }
 
 const SignUp = ({ onSwitchMode }) => {

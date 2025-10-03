@@ -15,3 +15,10 @@ export const FIELDS = [
     { name: "email", type: "email", placeholder: "Email", icon: FiMail },
     { name: "password", type: "password", placeholder: "Password", icon: FiLock },
 ]
+
+// Login
+
+
+
+
+export const API_URL = "http://localhost:8000"
