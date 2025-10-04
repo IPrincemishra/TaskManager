@@ -16,8 +16,21 @@ export const FIELDS = [
     { name: "password", type: "password", placeholder: "Password", icon: FiLock },
 ]
 
-// Login
+// Sidebar
+export const menuItems = [
+    { text: "Dashboard", path: "/", icon: FiHome },
+    { text: "Pending Tasks", path: "/pending", icon: RiListCheck2 },
+    { text: "Completed Tasks", path: "/complete", icon: FiCheckCircle },
+]
 
+
+export const LINK_CLASSES = {
+    base: "group flex items-center px-4 py-3 rounded-xl transition-all duration-300",
+    active: "bg-gradient-to-r from-purple-50 to-fuchsia-50 border-l-4 border-purple-500 text-purple-700 font-medium shadow-sm",
+    inactive: "hover:bg-purple-50/50 text-gray-600 hover:text-purple-700",
+    icon: "transition-transform duration-300 group-hover:scale-110 text-purple-500",
+    text: "text-sm font-medium ml-2",
+}
 
 
 

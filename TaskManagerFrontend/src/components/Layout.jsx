@@ -95,7 +95,7 @@ const Layout = ({ user, onLogout }) => {
     )
 
     return (
-        <div className='min-h-screen bg-gray-50'>
+        <div className='relative min-h-screen bg-gray-50'>
             <Navbar user={user} onLogout={onLogout} />
             <Sidebar user={user} tasks={tasks} />
 
