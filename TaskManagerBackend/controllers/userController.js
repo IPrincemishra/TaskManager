@@ -165,20 +165,20 @@ export async function updateProfile(req, res) {
     try {
 
         const exists = await User.findOne({
-            email, _id: {
-                $ne: req.user.id
-            }
-        })
-
-        if (!exists) {
+            email,
+            _id: { $ne: req.user.id }
+        });
+        if (exists) {
+            // Email exists, so return conflict
             return res.status(409).json({
                 success: false,
                 message: "Email already in use by another account"
-            })
+            });
         }
 
+
         const user = await User.findOneAndUpdate(
-            req.user.id,
+            { _id: req.user.id },
             { name, email },
             { new: true, runValidators: true, select: "name email" }
         )
@@ -194,8 +194,8 @@ export async function updateProfile(req, res) {
 // Change password function
 export async function updatePassword(req, res) {
     const { currentPassword, newPassword } = req.body
-    if (!currentPassword || !newPassword || newPassword.length > 8) {
-        return res.json(400).json({ success: false, message: "Password invalid or too short" })
+    if (!currentPassword || !newPassword || newPassword.length < 8) {
+        return res.status(400).json({ success: false, message: "Password invalid or too short" })
     }
 
     try {
