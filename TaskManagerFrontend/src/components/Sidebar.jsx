@@ -6,7 +6,7 @@ import { LiaLightbulb } from 'react-icons/lia';
 import { BiMenu } from 'react-icons/bi';
 import { FiX } from 'react-icons/fi';
 
-const Sidebar = (user, tasks) => {
+const Sidebar = ({ user, tasks }) => {
 
     const [mobileOpen, setMobileOpen] = useState(false)
     const [showModel, swtShowModel] = useState(false)

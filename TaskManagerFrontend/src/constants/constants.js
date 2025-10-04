@@ -32,6 +32,15 @@ export const LINK_CLASSES = {
     text: "text-sm font-medium ml-2",
 }
 
+export const personalFields = [
+    { name: "name", type: "text", placeholder: "Full Name", icon: FiUser },
+    { name: "email", type: "email", placeholder: "Email", icon: FiMail },
+]
 
+export const securityFields = [
+    { name: "current", placeholder: "Current Password" },
+    { name: "new", placeholder: "New Password" },
+    { name: "confirm", placeholder: "Confirm Password" },
+];
 
 export const API_URL = "http://localhost:8000"
