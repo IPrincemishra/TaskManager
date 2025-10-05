@@ -26,14 +26,14 @@ const Layout = ({ user, onLogout }) => {
             const { data } = await axios.get('http://localhost:8000/api/tasks/gp', { headers: { Authorization: `Bearer ${token}` } })
 
             const arr = Array.isArray(data) ? data :
-                Array.isArray(data?.task) ? data.task :
-                    Array.isArray(data.data) ? data.data : []
+                Array.isArray(data?.tasks) ? data.tasks :
+                    Array.isArray(data?.data) ? data.data : []
             setTasks(arr)
 
-        } catch (error) {
-            console.error(error);
-            setError(error.message || "Could not load tasks.")
-            if (error.message?.status === 401) onLogout()
+        } catch (err) {
+            console.error(err);
+            setError(err.message || "Could not load tasks.")
+            if (err.response?.status === 401) onLogout()
         } finally {
             setLoading(false)
         }
@@ -50,7 +50,7 @@ const Layout = ({ user, onLogout }) => {
 
         const totalCount = tasks.length
         const pendingCount = totalCount - completedTasks
-        const completionPercentage = totalCount ? Math.round(completedTasks / totalCount * 100) : 0
+        const completionPercentage = totalCount ? Math.round((completedTasks / totalCount) * 100) : 0
 
         return {
             totalCount,
@@ -87,9 +87,9 @@ const Layout = ({ user, onLogout }) => {
     if (error) return (
         <div className="min-h-screen bg-gray-50 p-6 flex items-center justify-center">
             <div className='bg-red-50 to-red-500 p-4 rounded-xl border border-red-100 max-w-md'>
-                <p className='font-medium mb-2 '>Error loading in tasks</p>
+                <p className='font-medium mb-2 '>Error loading tasks</p>
                 <p className='text-sm'>{error}</p>
-                <button onClick={() => fetchTasks} className='mt-4 py-2 px-4 bg-red-100 text-red-700 rounded-lg text-sm font-medium hover:bg-red-200 transition-colors'>Try Again</button>
+                <button onClick={() => fetchTasks()} className='mt-4 py-2 px-4 bg-red-100 text-red-700 rounded-lg text-sm font-medium hover:bg-red-200 transition-colors'>Try Again</button>
             </div>
         </div>
     )

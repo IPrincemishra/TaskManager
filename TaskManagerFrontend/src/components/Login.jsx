@@ -52,8 +52,10 @@ const Login = ({ onSubmit, onSwitchMode }) => {
                         localStorage.clear()
 
                     }
-                } catch (error) {
+                } catch (err) {
                     localStorage.clear()
+                    console.log(err);
+
                 }
             })
         }

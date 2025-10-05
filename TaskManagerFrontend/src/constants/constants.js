@@ -1,6 +1,7 @@
 import { FiUser, FiMail, FiHome, FiCheckCircle, FiLock, FiMoreVertical } from 'react-icons/fi'
 import { RiListCheck2, RiEdit2Line, RiDeleteBinLine, RiAwardLine, RiTimeLine, RiCalendar2Line } from 'react-icons/ri'
 import { FaFire } from 'react-icons/fa'
+import { BiHome } from 'react-icons/bi'
 
 
 export const Inputwrapper =
@@ -42,5 +43,70 @@ export const securityFields = [
     { name: "new", placeholder: "New Password" },
     { name: "confirm", placeholder: "Confirm Password" },
 ];
+
+
+export const STATS = [
+    {
+        key: "total",
+        label: "Total Tasks",
+        icon: BiHome,
+        iconColor: "bg-purple-100 text-purple-600",
+        valueKey: "total",
+        gradient: false
+    },
+    {
+        key: "lowPriority",
+        label: "Low Priority",
+        icon: FaFire,
+        iconColor: "bg-green-100 text-green-600",
+        borderColor: "border-green-100",
+        valueKey: "lowPriority",
+        textColor: "text-green-600"
+    },
+    {
+        key: "mediumPriority",
+        label: "Medium Priority",
+        icon: FaFire,
+        iconColor: "bg-orange-100 text-orange-600",
+        borderColor: "border-orange-100",
+        valueKey: "mediumPriority",
+        textColor: "text-orange-600"
+    },
+    {
+        key: "highPriority",
+        label: "High Priority",
+        icon: FaFire,
+        iconColor: "bg-red-100 text-red-600",
+        borderColor: "border-red-100",
+        valueKey: "highPriority",
+        textColor: "text-red-600"
+    }
+];
+
+
+export const FILTER_LABELS = {
+    all: "All Tasks",
+    today: "Today's Tasks",
+    week: "This Week",
+    high: "High Priority",
+    medium: "Medium Priority",
+    low: "Low Priority",
+}
+export const FILTER_OPTIONS = ["all", "today", "week", "high", "medium", "low"]
+
+export const DEFAULT_TASK = {
+    title: "",
+    description: "",
+    priority: "Low",
+    dueDate: "",
+    completed: "No",
+    id: null,
+};
+
+export const priorityStyles = {
+    Low: "bg-green-100 text-green-700 border-green-200",
+    Medium: "bg-purple-100 text-purple-700 border-purple-200",
+    High: "bg-fuchsia-100 text-fuchsia-700 border-fuchsia-200",
+};
 
 export const API_URL = "http://localhost:8000"
