@@ -28,20 +28,13 @@ const TaskItem = ({ task, onRefresh, onLogout, showCompleteCheckbox = true }) =>
         )
     }, [task.completed])
 
-    const getAuthHeaders = () => {
-        const token = localStorage.getItem('token')
-        if (!token) throw new Error("No auth token found")
-        return {
-            Authorization: `Bearer ${token}`
-        }
-    }
 
     const borderColor = isCompleted ? "border-green-500" : getPriorityColor(task.priority).split(" ")[0]
 
     const handleComplete = async () => {
         const newStatus = isCompleted ? 'No' : 'Yes'
         try {
-            await axios.put(`${API_URL}/api/tasks/${task.id}/gp`, { completed: newStatus },
+            await axios.put(`${API_URL}/api/tasks/${task._id}/gp`, { completed: newStatus },
                 { headers: getAuthHeaders() })
             setIsCompleted(!isCompleted)
             onRefresh?.()

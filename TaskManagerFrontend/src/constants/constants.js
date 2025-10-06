@@ -1,5 +1,5 @@
 import { FiUser, FiMail, FiHome, FiCheckCircle, FiLock, FiMoreVertical } from 'react-icons/fi'
-import { RiListCheck2, RiEdit2Line, RiDeleteBinLine, RiAwardLine, RiTimeLine, RiCalendar2Line } from 'react-icons/ri'
+import { RiListCheck2, RiEdit2Line, RiDeleteBinLine, RiAwardLine, RiTimeLine, RiCalendar2Line, RiSortAsc, RiSortDesc } from 'react-icons/ri'
 import { FaFire } from 'react-icons/fa'
 import { BiHome } from 'react-icons/bi'
 
@@ -131,5 +131,19 @@ export const MENU_OPTIONS = [
     { action: "edit", label: "Edit Task", icon: RiEdit2Line },
     { action: "delete", label: "Delete Task", icon: RiDeleteBinLine },
 ]
+
+export const SORT_OPTIONS = [
+    { id: "newest", label: "Newest", icon: RiSortAsc },
+    { id: "oldest", label: "Oldest", icon: RiSortDesc },
+    { id: "priority", label: "Priority", icon: RiAwardLine },
+]
+
+export const layoutClasses = {
+    tabButton: (active) =>
+        `px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${active
+            ? "bg-white text-purple-700 shadow-sm border border-purple-100"
+            : "text-gray-600 hover:text-purple-700 hover:bg-purple-100/50"
+        }`
+};
 
 export const API_URL = "http://localhost:8000"
